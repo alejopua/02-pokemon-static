@@ -26,7 +26,8 @@ const audioSrc = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pok
 <MainLayout title="Pokemon | Home">
   <nav class="flex flex-col items-center justify-between p-6 lg:px-8" aria-label="Global">
 		<div class="lg:flex lg:gap-x-12">
-			<a href="/" class="text-sm/6 font-semibold text-gray-900 hover:underline hover:text-blue-500">← Volver</a>
+			<a href="javascript:void(0)" 
+      onclick="event.preventDefault(); history.back();" role="button" class="text-sm/6 font-semibold text-gray-900 hover:underline hover:text-blue-500">← Volver</a>
 		</div>
 	</nav>
   <section class="flex flex-col items-center justify-center">
