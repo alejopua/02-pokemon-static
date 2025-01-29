@@ -30,8 +30,8 @@ const audioSrc = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pok
 		</div>
 	</nav>
   <section class="flex flex-col items-center justify-center">
-    <PokemonCard name={name} url={url} />
-    <audio controls class="mt-5 w-60 bg-gray-50 p-3 rounded-2xl">
+    <PokemonCard name={name} url={url} isBig />
+    <audio controls class="mt-5 w-96 bg-gray-50 p-3 rounded-2xl">
       <source src={audioSrc} type="audio/ogg" />
       Your browser does not support the audio element.
     </audio>
