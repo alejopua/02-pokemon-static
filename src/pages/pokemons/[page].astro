@@ -2,15 +2,15 @@
 import type { GetStaticPaths } from "astro";
 import type { PokemonListResponse } from "../../interfaces/pokemon-list.response";
 
-import MainLayout from "../../layouts/MainLayout.astro";
-import PokemonCard from "../../components/pokemons/PokemonCard.astro";
-import Pagination from "../../components/Pagination.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+import PokemonCard from "@components/pokemons/PokemonCard.astro";
+import Pagination from "@components/Pagination.astro";
 
 export const getStaticPaths = (async({ paginate }) => {
 	const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151');
 	const { results } = (await response.json()) as PokemonListResponse;
 	
-	return paginate(results, { pageSize: 18 });
+	return paginate(results, { pageSize: 16 });
 }) satisfies GetStaticPaths;
 
 // All paginated data is passed on the "page" prop
@@ -23,7 +23,7 @@ const { page } = Astro.props;
 		<Pagination currentPage={page.currentPage} total={page.lastPage} prev={page.url.prev} next={page.url.next} />
 	</div>
 	<hr class="mb-2"/>
-	<section arial-label="Pokemon List" class="grid grid-cols-3 justify-center justify-items-center items-center gap-y-4">
+	<section arial-label="Pokemon List" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 w-full justify-center justify-items-center items-center">
 			{page.data.map(({name, url}) =>
 				<PokemonCard name={name} url={url} />
 			)}
