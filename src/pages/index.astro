@@ -10,7 +10,7 @@ const { results } = (await response.json()) as PokemonListResponse;
 <MainLayout title="Pokemon | Home">
 	<h1 class="text-3xl font-black">Pokemon List</h1>
 	<hr class="mb-2"/>
-	<section arial-label="Pokemon List" class="grid grid-cols-3 justify-center justify-items-center items-center gap-y-4">
+	<section arial-label="Pokemon List" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 w-full justify-center justify-items-center items-center">
 			{results.map(({name, url}) =>
 				<PokemonCard name={name} url={url} />
 			)}
